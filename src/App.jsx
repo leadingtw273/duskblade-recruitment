@@ -335,21 +335,35 @@ const App = () => {
                   <Scan size={10} /> 通訊頻道已建立 // COMM-LINK SCAN
                 </div>
                 
-                <div className="flex justify-center items-center group cursor-crosshair">
+                {/* 桌面：QR Code */}
+                <div className="hidden lg:flex justify-center items-center group cursor-crosshair">
                    <div className="relative p-1 border border-amber-500/30 bg-black/60 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
                       <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-amber-500/60"></div>
                       <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-amber-500/60"></div>
-                      
+
                       <div className="bg-amber-500 p-0.5 rounded-sm">
-                        <img 
-                          src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://discord.gg/CfXpr84CSN&color=020617&bgcolor=f59e0b" 
+                        <img
+                          src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://discord.gg/CfXpr84CSN&color=020617&bgcolor=f59e0b"
                           alt="Discord QR Link"
                           className="w-24 h-24 md:w-32 md:h-32 opacity-90 group-hover:opacity-100 transition-opacity"
                         />
                       </div>
                    </div>
                 </div>
-                
+
+                {/* 手機/平板：點擊按鈕 */}
+                <a
+                  href="https://discord.gg/CfXpr84CSN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="lg:hidden relative flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-black italic uppercase tracking-widest text-[14px] py-3 px-4 border-2 border-amber-500 shadow-[0_0_20px_rgba(245,158,11,0.4)] active:scale-[0.98] transition-all group"
+                >
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-black/40"></span>
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-black/40"></span>
+                  <Radio size={16} className="group-hover:animate-pulse" />
+                  <span>Deploy // 加入 Discord</span>
+                </a>
+
                 <div className="mt-3 text-[12px] font-mono text-slate-600 text-center italic tracking-[0.2em] font-bold">
                   JOIN NOW: DISCORD.GG/CFXPR84CSN
                 </div>
