@@ -79,7 +79,7 @@ const App = () => {
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-10" style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))', backgroundSize: '100% 2px, 3px 100%' }}></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(15,23,42,1)_0%,rgba(2,6,23,1)_100%)] z-[-1]"></div>
 
-      <div className="w-full max-w-[1400px] relative border border-slate-800 bg-slate-900/40 backdrop-blur-md p-4 md:p-6 rounded-sm shadow-2xl z-20 flex flex-col">
+      <div className="poster-scale w-full max-w-[1400px] relative border border-slate-800 bg-slate-900/40 backdrop-blur-md p-4 md:p-6 rounded-sm shadow-2xl z-20 flex flex-col">
         
         {/* Logo 浮水印 */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.12] grayscale">
@@ -373,6 +373,10 @@ const App = () => {
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
         body { background-color: #020617; }
+        @media (min-width: 1600px) { .poster-scale { zoom: 1.08; } }
+        @media (min-width: 1920px) { .poster-scale { zoom: 1.12; } }
+        @media (min-width: 2400px) { .poster-scale { zoom: 1.20; } }
+        @media (min-width: 2880px) { .poster-scale { zoom: 1.30; } }
       `}} />
     </div>
   );
