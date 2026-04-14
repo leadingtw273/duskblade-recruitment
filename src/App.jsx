@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Shield,
   Target,
@@ -14,9 +14,34 @@ import {
   Focus
 } from 'lucide-react';
 import VesperSquadLogo from './assets/vesper_squad_logo.png';
-import DuskbladeSoldier from './assets/character.png';
+import DuskbladeSoldier_01 from './assets/character_01.png';
+import DuskbladeSoldier_02 from './assets/character_02.png';
+import DuskbladeSoldier_03 from './assets/character_03.png';
+import DuskbladeSoldier_04 from './assets/character_04.png';
+import DuskbladeSoldier_05 from './assets/character_05.png';
+import DuskbladeSoldier_06 from './assets/character_06.png';
+
+const SOLDIER_IMAGES = [
+  DuskbladeSoldier_01,
+  DuskbladeSoldier_02,
+  DuskbladeSoldier_03,
+  DuskbladeSoldier_04,
+  DuskbladeSoldier_05,
+  DuskbladeSoldier_06,
+];
 
 const App = () => {
+  const [soldierIndex, setSoldierIndex] = useState(0);
+  const [soldierPaused, setSoldierPaused] = useState(false);
+
+  useEffect(() => {
+    if (soldierPaused) return;
+    const timer = setInterval(() => {
+      setSoldierIndex((i) => (i + 1) % SOLDIER_IMAGES.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [soldierPaused]);
+
   // 訓練科目數據
   const trainings = [
     { 
@@ -150,21 +175,45 @@ const App = () => {
 
             {/* 左下角留白空間加入戰士裝備圖 */}
             <section className="flex-grow flex flex-col min-h-0">
-              <div className="relative border border-slate-800 bg-slate-950/80 p-1 overflow-hidden group flex-grow flex">
+              <div
+                className="relative border border-slate-800 bg-slate-950/80 p-1 overflow-hidden group flex-grow flex cursor-pointer select-none"
+                onMouseEnter={() => setSoldierPaused(true)}
+                onMouseLeave={() => setSoldierPaused(false)}
+                onClick={() => setSoldierIndex((i) => (i + 1) % SOLDIER_IMAGES.length)}
+              >
                 {/* 裝備掃描視覺效果 */}
                 <div className="absolute top-2 left-2 z-20 bg-amber-500/80 text-black px-1.5 py-0.5 text-[12px] font-black italic tracking-tighter uppercase flex items-center gap-1">
                   <Focus size={10} /> Armor Preview
                 </div>
+                <div className="absolute top-2 right-2 z-20 text-[10px] font-mono text-amber-500/70 tracking-widest bg-black/50 px-1.5 py-0.5 border border-amber-500/30">
+                  {String(soldierIndex + 1).padStart(2, '0')} / {String(SOLDIER_IMAGES.length).padStart(2, '0')}
+                </div>
                 <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-amber-500/20 z-10"></div>
                 <div className="absolute bottom-0 left-0 w-16 h-16 border-b border-l border-amber-500/20 z-10"></div>
 
-                {/* 戰士圖片 */}
-                <img
-                  src={DuskbladeSoldier}
-                  alt="Duskblade Soldier"
-                  className="w-full h-full object-cover object-top grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 opacity-80 group-hover:opacity-100"
-                  onError={(e) => e.target.style.display = 'none'}
-                />
+                {/* 戰士圖片 - 淡入淡出輪播 */}
+                {SOLDIER_IMAGES.map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`Duskblade Soldier ${i + 1}`}
+                    className={`absolute inset-1 w-[calc(100%-0.5rem)] h-[calc(100%-0.5rem)] object-cover object-top grayscale-[0.3] group-hover:grayscale-0 transition-opacity duration-1000 ${i === soldierIndex ? 'opacity-80 group-hover:opacity-100' : 'opacity-0'}`}
+                    onError={(e) => e.target.style.display = 'none'}
+                  />
+                ))}
+
+                {/* 指示點 */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+                  {SOLDIER_IMAGES.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      aria-label={`Soldier ${i + 1}`}
+                      onClick={(e) => { e.stopPropagation(); setSoldierIndex(i); }}
+                      className={`h-1 transition-all ${i === soldierIndex ? 'w-4 bg-amber-500' : 'w-1 bg-slate-600 hover:bg-slate-400'}`}
+                    />
+                  ))}
+                </div>
 
                 {/* 底部裝飾條 */}
                 <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent z-10"></div>

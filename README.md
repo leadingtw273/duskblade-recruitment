@@ -27,6 +27,8 @@ npm run lint     # ESLint
 - **自適應縮放**：≥1600/1920/2400/2880px 四段 CSS zoom 斷點（1.08 / 1.12 / 1.20 / 1.30）
 - **HUD 美學**：琥珀 × 深藍配色、mono 裝飾字、四角切角、對角警示條紋、瞄準環、戰場威脅分級
 - **三欄底部對齊**：角色圖以 `flex-grow + object-cover` 自動拉伸
+- **角色圖卡輪播**：6 張 character 圖每 3.5s 自動切換，支援滑鼠懸停暫停、點擊圖片換下一張、底部指示點手動跳轉
+- **RWD Discord 入口**：桌面顯示 QR code，小螢幕改為 `Deploy // 加入 Discord` 按鈕（開新分頁）
 
 ## 部署
 
@@ -46,7 +48,7 @@ src/
 ├── index.css            # Tailwind 全域樣式
 └── assets/
     ├── vesper_squad_logo.png
-    └── character.png
+    └── character_01.png ~ character_06.png
 ```
 
 ## License
