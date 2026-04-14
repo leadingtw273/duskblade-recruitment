@@ -83,13 +83,13 @@ const App = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-200 p-2 md:p-6 font-sans selection:bg-amber-500 selection:text-black relative overflow-hidden">
-      
+    <div className="min-h-screen bg-[#020617] text-slate-200 p-2 md:p-6 font-sans selection:bg-amber-500 selection:text-black relative overflow-hidden flex items-center justify-center">
+
       {/* 背景環境效果 */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-10" style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))', backgroundSize: '100% 2px, 3px 100%' }}></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(15,23,42,1)_0%,rgba(2,6,23,1)_100%)] z-[-1]"></div>
 
-      <div className="max-w-7xl mx-auto relative border border-slate-800 bg-slate-900/40 backdrop-blur-md p-4 md:p-8 rounded-sm shadow-2xl z-20">
+      <div className="w-full max-w-[1400px] relative border border-slate-800 bg-slate-900/40 backdrop-blur-md p-4 md:p-6 rounded-sm shadow-2xl z-20 flex flex-col">
         
         {/* Logo 浮水印 */}
         <div className="absolute bottom-12 right-12 pointer-events-none z-10 opacity-[0.08] grayscale mix-blend-screen">
@@ -102,7 +102,7 @@ const App = () => {
         </div>
 
         {/* HEADER */}
-        <header className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-amber-500/40 pb-4 mb-6 gap-4 relative z-30">
+        <header className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-amber-500/40 pb-3 mb-4 gap-4 relative z-30 flex-shrink-0">
           <div className="flex items-center gap-4">
             <div className="relative">
               <div className="bg-amber-500 p-2 text-black font-black italic text-2xl skew-x-[-12deg] relative z-10 shadow-[0_0_15px_rgba(245,158,11,0.5)]">D.B</div>
@@ -112,47 +112,41 @@ const App = () => {
               <h1 className="text-3xl font-black tracking-widest text-white flex items-center gap-3">
                 黃昏之刃 <span className="text-amber-500 italic text-xl font-bold">DUSKBLADE</span>
               </h1>
-              <p className="text-[10px] font-mono text-slate-500 tracking-[0.4em] uppercase">Vesper Squad // FPS tactical strike unit // 菁英募集中</p>
+              <p className="text-[12px] font-mono text-slate-500 tracking-[0.4em] uppercase">Vesper Squad // FPS tactical strike unit // 菁英募集中</p>
             </div>
           </div>
-          <div className="text-right font-mono text-[9px] text-slate-500 leading-tight space-y-1">
+          <div className="text-right font-mono text-[12px] text-slate-500 leading-tight space-y-1">
             <div className="flex items-center justify-end gap-2"><span className="w-1 h-1 bg-green-500 rounded-full animate-pulse"></span> SYSTEM: ONLINE</div>
-            <div className="text-amber-500/60 uppercase tracking-tighter italic text-[11px]">"我來、我見、我——招募！"</div>
+            <div className="text-amber-500/60 uppercase tracking-tighter italic text-[13px]">"我來、我見、我——招募！"</div>
           </div>
         </header>
 
         {/* CONTENT GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 relative z-30">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 relative z-30">
           
           {/* COL 1: MISSION BRIEFING & EQUIPMENT PREVIEW */}
-          <div className="lg:col-span-1 space-y-6 flex flex-col h-full">
+          <div className="lg:col-span-1 space-y-3 flex flex-col">
             {/* 招募前言 - 已調整不撐滿 */}
             <section className="border border-slate-800 p-4 bg-slate-950/60 relative group">
               <div className="absolute top-0 left-0 w-4 h-[1px] bg-amber-500"></div>
               <div className="absolute top-0 left-0 w-[1px] h-4 bg-amber-500"></div>
-              <h3 className="text-xs font-bold text-amber-500 mb-3 flex items-center gap-2">
+              <h3 className="text-base font-bold text-amber-500 mb-3 flex items-center gap-2">
                 <Info size={14} /> 招募前言
               </h3>
-              <p className="text-[11px] leading-relaxed text-slate-400">
+              <p className="text-[14px] leading-relaxed text-slate-400">
                 專注於 FPS 戰鬥場景的團隊合作與戰術配合。我們建立不僅是一個隊伍，而是一套高效的作戰體系。不論是地面肅清還是艦內登檢，我們在尋找渴望戰鬥的靈魂。
               </p>
             </section>
 
             {/* 小隊定位 - 已調整不撐滿 */}
             <section className="border border-slate-800 p-4 bg-slate-950/60">
-              <h3 className="text-xs font-bold text-blue-400 mb-4 flex items-center gap-2">
+              <h3 className="text-base font-bold text-blue-400 mb-4 flex items-center gap-2">
                 <Target size={14} /> 隊伍定位
               </h3>
               <div className="space-y-4">
-                <div className="bg-blue-500/5 p-2 border-l-2 border-blue-500/30">
-                  <span className="text-[9px] text-blue-400 uppercase font-bold block mb-1 tracking-widest italic">Mission Role</span>
-                  <p className="text-[10px] text-slate-300 leading-relaxed">
-                    負責地點清除、佔領、搜索與控制等步兵作戰項目。處理轟炸後的控制、破門破壞及高價值撤離任務。
-                  </p>
-                </div>
                 <div className="grid grid-cols-1 gap-2">
                   {["戰術跳幫", "控制/清除", "地表壓制", "搜索與撤離"].map((role, i) => (
-                    <div key={i} className="flex items-center gap-2 text-[10px] text-slate-400 bg-slate-900/80 p-1.5 border border-slate-800/50">
+                    <div key={i} className="flex items-center gap-2 text-[12px] text-slate-400 bg-slate-900/80 p-1.5 border border-slate-800/50">
                       <div className="w-1 h-1 bg-amber-500"></div> {role}
                     </div>
                   ))}
@@ -161,10 +155,10 @@ const App = () => {
             </section>
 
             {/* 左下角留白空間加入戰士裝備圖 */}
-            <section className="flex-grow flex flex-col justify-end">
+            <section>
               <div className="relative border border-slate-800 bg-slate-950/80 p-1 overflow-hidden group">
                 {/* 裝備掃描視覺效果 */}
-                <div className="absolute top-2 left-2 z-20 bg-amber-500/80 text-black px-1.5 py-0.5 text-[8px] font-black italic tracking-tighter uppercase flex items-center gap-1">
+                <div className="absolute top-2 left-2 z-20 bg-amber-500/80 text-black px-1.5 py-0.5 text-[12px] font-black italic tracking-tighter uppercase flex items-center gap-1">
                   <Focus size={10} /> Armor Preview
                 </div>
                 <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-amber-500/20 z-10"></div>
@@ -185,57 +179,70 @@ const App = () => {
           </div>
 
           {/* COL 2 & 3: OPS & REWARDS (CENTER) */}
-          <div className="lg:col-span-2 space-y-6 flex flex-col h-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-grow">
+          <div className="lg:col-span-2 space-y-3 flex flex-col">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* 戰術訓練 */}
-              <section className="border border-slate-800 p-4 bg-slate-950/60 flex flex-col h-full relative overflow-hidden">
+              <section className="border border-slate-800 p-4 bg-slate-950/60 flex flex-col relative overflow-hidden">
                 <div className="absolute -right-4 -bottom-4 opacity-[0.03] rotate-12"><Activity size={120} /></div>
-                <h3 className="text-xs font-bold text-amber-500 mb-4 tracking-[0.2em] uppercase flex justify-between">
+                <h3 className="text-base font-bold text-amber-500 mb-4 tracking-[0.2em] uppercase flex justify-between">
                   <span>Tactical Training</span>
                   <span className="text-slate-700">戰術訓練</span>
                 </h3>
-                <div className="space-y-4 flex-grow">
+                <div className="space-y-4">
                   {trainings.map((t, i) => (
                     <div key={i} className="relative pl-4 border-l border-slate-800/50 hover:border-amber-500 transition-colors">
                       <div className="absolute left-[-4.5px] top-1.5 w-2 h-2 bg-slate-800 border border-slate-600 rotate-45 group-hover:bg-amber-500"></div>
-                      <h4 className="text-[11px] font-bold text-slate-200">{t.title}</h4>
-                      <p className="text-[10px] text-slate-500 mt-1 leading-normal italic">{t.desc}</p>
+                      <h4 className="text-[15px] font-bold text-slate-200">{t.title}</h4>
+                      <p className="text-[14px] text-slate-500 mt-1 leading-normal italic">{t.desc}</p>
                     </div>
                   ))}
                 </div>
               </section>
 
               {/* 作戰演練 */}
-              <section className="border border-slate-800 p-4 bg-slate-950/60 h-full flex flex-col relative overflow-hidden">
+              <section className="border border-slate-800 p-4 bg-slate-950/60 flex flex-col relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-2 opacity-5 scale-x-[-1]"><Radar size={60} /></div>
-                <h3 className="text-xs font-bold text-blue-400 mb-4 tracking-[0.2em] uppercase flex justify-between">
+                <h3 className="text-base font-bold text-blue-400 mb-4 tracking-[0.2em] uppercase flex justify-between">
                   <span>Op Environments</span>
                   <span className="text-slate-700">作戰演練</span>
                 </h3>
-                <div className="space-y-4 flex-grow">
+                <div className="space-y-4">
                   <div className="space-y-2">
-                    <span className="text-[9px] text-blue-400/60 block uppercase font-mono tracking-tighter border-b border-blue-400/20 pb-1">部署區域 // Locations</span>
-                    <ul className="text-[10px] text-slate-300 space-y-1 font-medium leading-relaxed">
+                    <span className="text-[12px] text-blue-400/60 block uppercase font-mono tracking-tighter border-b border-blue-400/20 pb-1">部署區域 // Locations</span>
+                    <ul className="text-[14px] text-slate-300 space-y-1 font-medium leading-relaxed">
                       <li>• <b>船艦:</b> 伊德里斯、890、回收者、北極星、克拉克</li>
                       <li>• <b>地面:</b> 物流中心、OLP、Jump town、法羅中心、幽靈窪地</li>
                     </ul>
                   </div>
                   <div className="space-y-2">
-                    <span className="text-[9px] text-blue-400/60 block uppercase font-mono tracking-tighter border-b border-blue-400/20 pb-1">作戰項目 // Tasks</span>
-                    <ul className="text-[10px] text-slate-300 space-y-1 font-medium leading-relaxed">
+                    <span className="text-[12px] text-blue-400/60 block uppercase font-mono tracking-tighter border-b border-blue-400/20 pb-1">作戰項目 // Tasks</span>
+                    <ul className="text-[14px] text-slate-300 space-y-1 font-medium leading-relaxed">
                       <li>• <b>殲滅/控制:</b> 擊殺所有敵人並攻佔目標位置。</li>
                       <li>• <b>物資爭奪:</b> 搶奪或保護關鍵組件/載具並撤離。</li>
                       <li>• <b>救援控制:</b> 搜尋並完成 VIP 護送撤離。</li>
                     </ul>
                   </div>
                   <div className="mt-2 border-slate-800/50">
-                    <span className="text-[9px] text-blue-400/60 block uppercase font-mono tracking-tighter border-b border-blue-400/20 pb-1 mb-2">戰區標記 // Zone Indicators</span>
+                    <span className="text-[12px] text-blue-400/60 block uppercase font-mono tracking-tighter border-b border-blue-400/20 pb-1 mb-2">戰區標記 // Zone Indicators</span>
                     <div className="flex flex-wrap gap-1.5 justify-start">
                       {missionAreas.map(area => (
-                        <span key={area.name} className={`text-[9px] px-2 py-0.5 border font-mono transition-all duration-300 ${getTagStyle(area.level)}`}>
+                        <span key={area.name} className={`text-[12px] px-2 py-0.5 border font-mono transition-all duration-300 ${getTagStyle(area.level)}`}>
                           {area.name}
                         </span>
                       ))}
+                    </div>
+                  </div>
+                  <div className="mt-auto pt-4 border-t border-slate-800">
+                    <div className="bg-slate-900 p-2 border border-slate-800 relative">
+                      <div className="text-[9px] text-slate-500 mb-1 flex justify-between uppercase font-mono italic">
+                        <span className="flex items-center gap-1 font-bold">戰場威脅分級</span>
+                        <span className="text-red-500/70 font-black tracking-tighter animate-pulse">Critical Alpha</span>
+                      </div>
+                      <div className="h-1 bg-slate-800 rounded-full overflow-hidden flex">
+                        <div className="h-full bg-blue-500 w-[25%] border-r border-slate-950"></div>
+                        <div className="h-full bg-amber-500 w-[55%] border-r border-slate-950"></div>
+                        <div className="h-full bg-red-600 w-[20%]"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -243,8 +250,8 @@ const App = () => {
             </div>
 
             {/* 獎勵區塊 */}
-            <section className="border border-slate-800 p-4 bg-slate-950/60 mt-6 flex-grow flex flex-col">
-              <h3 className="text-xs font-bold text-slate-300 mb-4 flex items-center justify-between">
+            <section className="border border-slate-800 p-4 bg-slate-950/60 flex flex-col">
+              <h3 className="text-base font-bold text-slate-300 mb-4 flex items-center justify-between">
                 <span className="tracking-widest italic font-black uppercase">Benefits & Tiers // 福利與考核</span>
                 <TrendingUp size={14} className="text-amber-500 opacity-50" />
               </h3>
@@ -252,10 +259,10 @@ const App = () => {
                 {rewards.map((r, i) => (
                   <div key={i} className={`p-3 border rounded-sm flex flex-col min-h-[110px] ${r.color}`}>
                     <div className="flex justify-between items-center mb-1.5 border-b border-white/5 pb-1">
-                      <span className="text-[9px] font-black uppercase tracking-widest text-white">{r.tier}</span>
+                      <span className="text-[12px] font-black uppercase tracking-widest text-white">{r.tier}</span>
                       <Star size={10} className="text-amber-500" />
                     </div>
-                    <ul className="text-[10px] space-y-1 text-slate-400 flex-grow">
+                    <ul className="text-[14px] space-y-1 text-slate-400 flex-grow">
                       {r.items.map((item, idx) => (
                         <li key={idx} className="flex gap-1.5 leading-tight italic">
                           <span className="text-amber-500/40">•</span> {item}
@@ -270,14 +277,14 @@ const App = () => {
               <div className="my-5 relative h-[1px] bg-slate-800/60 w-full">
                 <div className="absolute left-0 top-0 h-full w-12 bg-amber-500/40"></div>
                 <div className="absolute right-0 top-0 h-full w-2 bg-slate-700"></div>
-                <div className="absolute left-14 top-[-3px] text-[7px] font-mono text-slate-700 tracking-widest uppercase">
+                <div className="absolute left-14 top-[-3px] text-[12px] font-mono text-slate-700 tracking-widest uppercase">
                   End of Tier Definitions
                 </div>
               </div>
 
               <div className="flex items-start gap-3 bg-amber-500/5 p-2 border border-amber-500/20">
                 <div className="mt-0.5"><Shield size={12} className="text-amber-500" /></div>
-                <p className="text-[9px] text-amber-200/70 leading-normal italic">
+                <p className="text-[14px] text-amber-200/70 leading-normal italic">
                   <span className="font-bold text-amber-500 uppercase">黃昏隊長 :</span> 對團隊有諸多貢獻之核心成員，具備分隊管理權限，並獲贈最高階機庫禮物獎勵。
                 </p>
               </div>
@@ -285,20 +292,20 @@ const App = () => {
           </div>
 
           {/* COL 4: INTEL & COMM-LINK */}
-          <div className="lg:col-span-1 space-y-6 relative z-30 flex flex-col h-full">
-            <section className="border border-slate-800 p-4 bg-slate-950/60 flex flex-col h-full relative">
+          <div className="lg:col-span-1 space-y-6 relative z-30 flex flex-col">
+            <section className="border border-slate-800 p-4 bg-slate-950/60 flex flex-col relative">
               <div className="absolute top-0 right-0 p-2 opacity-10"><Radio size={40} /></div>
-              <h3 className="text-xs font-bold text-slate-500 mb-4 flex items-center gap-2">
+              <h3 className="text-base font-bold text-slate-500 mb-4 flex items-center gap-2">
                 <Terminal size={14} /> INTEL / FAQ
               </h3>
               
-              <div className="space-y-3 overflow-y-auto max-h-[510px] pr-2 custom-scrollbar flex-grow">
+              <div className="space-y-3 pr-2">
                 {faqs.map((faq, i) => (
                   <div key={i} className="border-b border-slate-800/50 pb-2 last:border-0 group">
-                    <div className="text-[10px] text-amber-500/80 font-bold mb-0.5 italic group-hover:text-amber-500 transition-colors tracking-tighter">
+                    <div className="text-[14px] text-amber-500/80 font-bold mb-0.5 italic group-hover:text-amber-500 transition-colors tracking-tighter">
                       Q: {faq.q}
                     </div>
-                    <div className="text-[10px] text-slate-500 leading-tight">
+                    <div className="text-[14px] text-slate-500 leading-tight">
                       A: {faq.a}
                     </div>
                   </div>
@@ -307,7 +314,7 @@ const App = () => {
               
               {/* 整合式戰術 QR CODE 區塊 */}
               <div className="mt-4 pt-4 border-t border-slate-800/60 bg-slate-900/30 -mx-4 -mb-4 p-4 rounded-b-sm">
-                <div className="text-[9px] text-slate-600 font-mono mb-3 uppercase tracking-widest text-center flex items-center justify-center gap-2">
+                <div className="text-[12px] text-slate-600 font-mono mb-3 uppercase tracking-widest text-center flex items-center justify-center gap-2">
                   <Scan size={10} /> 通訊頻道已建立 // COMM-LINK SCAN
                 </div>
                 
@@ -326,7 +333,7 @@ const App = () => {
                    </div>
                 </div>
                 
-                <div className="mt-3 text-[9px] font-mono text-slate-600 text-center italic tracking-[0.2em] font-bold">
+                <div className="mt-3 text-[12px] font-mono text-slate-600 text-center italic tracking-[0.2em] font-bold">
                   JOIN NOW: DISCORD.GG/CFXPR84CSN
                 </div>
               </div>
@@ -335,9 +342,9 @@ const App = () => {
         </div>
 
         {/* FOOTER */}
-        <div className="mt-6 flex items-center gap-4 opacity-30 relative z-30">
+        <div className="mt-3 flex items-center gap-4 opacity-30 relative z-30 flex-shrink-0">
           <div className="flex-1 h-[1px] bg-slate-800"></div>
-          <div className="text-[8px] font-mono text-slate-500 tracking-[0.3em] uppercase">
+          <div className="text-[12px] font-mono text-slate-500 tracking-[0.3em] uppercase">
             Encryption Status: SECURE // Vesper.Sys // VER 3.3
           </div>
           <div className="flex-1 h-[1px] bg-slate-800"></div>
