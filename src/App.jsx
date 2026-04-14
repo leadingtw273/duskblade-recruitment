@@ -14,9 +14,9 @@ import {
   Focus
 } from 'lucide-react';
 import VesperSquadLogo from './assets/vesper_squad_logo.png';
-import DuskbladeSoldier_01 from './assets/character_01.png';
-import DuskbladeSoldier_02 from './assets/character_02.png';
-import DuskbladeSoldier_03 from './assets/character_03.png';
+import DuskbladeSoldier_01 from './assets/character_01.jpg';
+import DuskbladeSoldier_02 from './assets/character_02.jpg';
+import DuskbladeSoldier_03 from './assets/character_03.jpg';
 import DuskbladeSoldier_04 from './assets/character_04.png';
 import DuskbladeSoldier_05 from './assets/character_05.png';
 import DuskbladeSoldier_06 from './assets/character_06.png';
