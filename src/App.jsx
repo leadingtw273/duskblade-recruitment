@@ -176,7 +176,7 @@ const App = () => {
             {/* 左下角留白空間加入戰士裝備圖 */}
             <section className="flex-grow flex flex-col min-h-0">
               <div
-                className="relative border border-slate-800 bg-slate-950/80 p-1 overflow-hidden group flex-grow flex cursor-pointer select-none"
+                className="relative border border-slate-800 bg-slate-950/80 p-1 overflow-hidden group flex-grow flex cursor-pointer select-none aspect-[3/4] lg:aspect-auto"
                 onMouseEnter={() => setSoldierPaused(true)}
                 onMouseLeave={() => setSoldierPaused(false)}
                 onClick={() => setSoldierIndex((i) => (i + 1) % SOLDIER_IMAGES.length)}
