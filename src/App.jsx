@@ -1,26 +1,16 @@
-import React, { useState } from 'react';
-import { 
-  Shield, 
-  Target, 
-  Crosshair, 
-  Trophy, 
-  Info, 
-  MessageSquare, 
-  Users, 
-  MapPin, 
-  Zap, 
-  Skull, 
-  Terminal, 
-  Activity, 
-  Layers, 
+import React from 'react';
+import {
+  Shield,
+  Target,
+  Crosshair,
+  Info,
+  Terminal,
+  Activity,
   Star,
   TrendingUp,
   Radar,
   Radio,
   Scan,
-  Compass,
-  Cpu,
-  ChevronRight,
   Focus
 } from 'lucide-react';
 import VesperSquadLogo from './assets/vesper_squad_logo.png';
@@ -69,7 +59,7 @@ const App = () => {
   const rewards = [
     { tier: "基礎戰鬥考核", items: ["黑安藤", "彭布羅克包"], color: "border-slate-700 bg-slate-900/20" },
     { tier: "菁英戰鬥考核", items: ["戰壕頭", "蔑視胸", "黑金帕拉蒂諾套服"], color: "border-blue-500/30 bg-blue-500/5" },
-    { tier: "王牌戰鬥考核", items: ["戰壕頭(黑/橙)", "Downburst 套服", "套服機庫禮物(黃昏隊長)"], color: "border-amber-500/40 bg-amber-500/5" }
+    { tier: "王牌戰鬥考核", items: ["戰壕頭(黑/橙)", "Downburst 套服", "套服機庫禮物(*黃昏隊長)"], color: "border-amber-500/40 bg-amber-500/5" }
   ];
 
   const faqs = [
@@ -92,11 +82,11 @@ const App = () => {
       <div className="w-full max-w-[1400px] relative border border-slate-800 bg-slate-900/40 backdrop-blur-md p-4 md:p-6 rounded-sm shadow-2xl z-20 flex flex-col">
         
         {/* Logo 浮水印 */}
-        <div className="absolute bottom-12 right-12 pointer-events-none z-10 opacity-[0.08] grayscale mix-blend-screen">
-          <img 
-            src={VesperSquadLogo} 
-            alt="Logo Watermark" 
-            className="w-28 md:w-40"
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.12] grayscale">
+          <img
+            src={VesperSquadLogo}
+            alt="Logo Watermark"
+            className="w-[55%] max-w-[680px]"
             onError={(e) => e.target.style.display = 'none'}
           />
         </div>
@@ -105,8 +95,12 @@ const App = () => {
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-amber-500/40 pb-3 mb-4 gap-4 relative z-30 flex-shrink-0">
           <div className="flex items-center gap-4">
             <div className="relative">
-              <div className="bg-amber-500 p-2 text-black font-black italic text-2xl skew-x-[-12deg] relative z-10 shadow-[0_0_15px_rgba(245,158,11,0.5)]">D.B</div>
-              <div className="absolute -inset-1 bg-amber-500/20 blur-sm"></div>
+              <img
+                src={VesperSquadLogo}
+                alt="Duskblade Logo"
+                className="relative z-10 w-20 h-20 object-contain drop-shadow-[0_0_12px_rgba(245,158,11,0.5)]"
+                onError={(e) => e.target.style.display = 'none'}
+              />
             </div>
             <div>
               <h1 className="text-3xl font-black tracking-widest text-white flex items-center gap-3">
@@ -155,31 +149,31 @@ const App = () => {
             </section>
 
             {/* 左下角留白空間加入戰士裝備圖 */}
-            <section>
-              <div className="relative border border-slate-800 bg-slate-950/80 p-1 overflow-hidden group">
+            <section className="flex-grow flex flex-col min-h-0">
+              <div className="relative border border-slate-800 bg-slate-950/80 p-1 overflow-hidden group flex-grow flex">
                 {/* 裝備掃描視覺效果 */}
                 <div className="absolute top-2 left-2 z-20 bg-amber-500/80 text-black px-1.5 py-0.5 text-[12px] font-black italic tracking-tighter uppercase flex items-center gap-1">
                   <Focus size={10} /> Armor Preview
                 </div>
                 <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-amber-500/20 z-10"></div>
                 <div className="absolute bottom-0 left-0 w-16 h-16 border-b border-l border-amber-500/20 z-10"></div>
-                
+
                 {/* 戰士圖片 */}
-                <img 
-                  src={DuskbladeSoldier} 
-                  alt="Duskblade Soldier" 
-                  className="w-full h-auto grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 opacity-80 group-hover:opacity-100"
+                <img
+                  src={DuskbladeSoldier}
+                  alt="Duskblade Soldier"
+                  className="w-full h-full object-cover object-top grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 opacity-80 group-hover:opacity-100"
                   onError={(e) => e.target.style.display = 'none'}
                 />
-                
+
                 {/* 底部裝飾條 */}
-                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent z-10"></div>
               </div>
             </section>
           </div>
 
           {/* COL 2 & 3: OPS & REWARDS (CENTER) */}
-          <div className="lg:col-span-2 space-y-3 flex flex-col">
+          <div className="lg:col-span-2 space-y-3 flex flex-col min-h-0">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* 戰術訓練 */}
               <section className="border border-slate-800 p-4 bg-slate-950/60 flex flex-col relative overflow-hidden">
@@ -289,6 +283,29 @@ const App = () => {
                 </p>
               </div>
             </section>
+
+            {/* 戰隊標語 */}
+            <section className="border border-amber-500/20 bg-slate-950/40 relative overflow-hidden flex items-center justify-center py-3 px-4">
+              <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #f59e0b 0, #f59e0b 6px, transparent 6px, transparent 14px)' }}></div>
+              <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber-500/60"></div>
+              <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-amber-500/60"></div>
+              <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber-500/60"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber-500/60"></div>
+
+              <div className="flex items-center gap-3 relative z-10">
+                <div className="h-[1px] w-8 bg-amber-500/50"></div>
+                <Crosshair size={14} className="text-amber-500/70 flex-shrink-0" />
+                <div className="flex items-center gap-2 font-black italic uppercase tracking-wider text-slate-100 text-[15px] whitespace-nowrap">
+                  <span>Speed</span>
+                  <span className="text-amber-500">,</span>
+                  <span>Surprise</span>
+                  <span className="text-amber-500">&</span>
+                  <span>Violence of Action</span>
+                </div>
+                <Crosshair size={14} className="text-amber-500/70 flex-shrink-0" />
+                <div className="h-[1px] w-8 bg-amber-500/50"></div>
+              </div>
+            </section>
           </div>
 
           {/* COL 4: INTEL & COMM-LINK */}
@@ -327,7 +344,7 @@ const App = () => {
                         <img 
                           src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://discord.gg/CfXpr84CSN&color=020617&bgcolor=f59e0b" 
                           alt="Discord QR Link"
-                          className="w-20 h-20 md:w-28 md:h-28 opacity-90 group-hover:opacity-100 transition-opacity"
+                          className="w-24 h-24 md:w-32 md:h-32 opacity-90 group-hover:opacity-100 transition-opacity"
                         />
                       </div>
                    </div>
